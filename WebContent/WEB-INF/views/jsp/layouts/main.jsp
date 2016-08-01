@@ -49,7 +49,6 @@
 				<tiles:insertAttribute name="leftmenu" />
 			</div>
 			<div id="content">
-				<tiles:insertAttribute name="navigation" />
 				<tiles:insertAttribute name="content" />
 			</div>
 		</div>

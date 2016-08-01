@@ -12,17 +12,11 @@ public interface UserService {
 	
 	User findByUsernamePassword(String username, String password);
 
-	List<User> findAllSchoolUsers();
-
 	List<User> findAllAdminUsers();
 
 	List<User> findAllUsers();
 
-	List<User> findAllProfessorUsers();
-	
 	List<User> findAllRecruiterUsers();
-
-	List<User> findAllStudentUsers();
 
 	void updateUserProfile(User user);
 
@@ -38,7 +32,4 @@ public interface UserService {
 
 	void activateUser(boolean active, long id);
 
-	public Map<Long, String> getProfessorsMap();
-
-	Page<User> getProfessorUsers(Integer pageNumber);
 }

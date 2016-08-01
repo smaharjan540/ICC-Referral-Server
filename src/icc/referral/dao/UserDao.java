@@ -17,20 +17,9 @@ public interface UserDao extends JpaRepository<User, Long> {
 	User findById(long id);
 
 	@Modifying
-	@Query("select s from icc.referral.model.School s")
-	List<User> findAllSchoolUsers();
-
-	@Modifying
-	@Query("select p from icc.referral.model.Professor p")
-	List<User> findAllProfessorUsers();
-
-	@Modifying
 	@Query("select a from icc.referral.model.Admin a")
 	List<User> findAllAdminUsers();
 
-	@Modifying
-	@Query("select s from icc.referral.model.Student s")
-	List<User> findAllStudentUsers();
 
 	@Modifying
 	@Query("select r from icc.referral.model.Recruiter r")

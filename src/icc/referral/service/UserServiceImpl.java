@@ -17,15 +17,12 @@ import icc.referral.dao.RoleDao;
 import icc.referral.dao.UserDao;
 import icc.referral.model.Admin;
 import icc.referral.model.Consultant;
-import icc.referral.model.Professor;
 import icc.referral.model.Recruiter;
 import icc.referral.model.Role;
-import icc.referral.model.School;
-import icc.referral.model.Student;
 import icc.referral.model.User;
 
 @Service("userService")
-@Transactional(propagation = Propagation.REQUIRED)//User
+@Transactional(propagation = Propagation.REQUIRED) // User
 public class UserServiceImpl implements UserService {
 
 	@Resource
@@ -72,51 +69,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findAllSchoolUsers() {
-		return userdao.findAllSchoolUsers();
-	}
-
-	@Override
 	public List<User> findAllAdminUsers() {
 		return userdao.findAllAdminUsers();
-	}
-
-	@Override
-	public List<User> findAllProfessorUsers() {
-		return userdao.findAllProfessorUsers();
-	}
-
-	private static final int PAGE_SIZE = 3;
-
-	@Override
-	public List<User> findAllStudentUsers() {
-		return userdao.findAllStudentUsers();
-	}
-
-	@Override
-	public Page<User> getProfessorUsers(Integer pageNumber) {
-		
-
-		PageRequest pageable = new PageRequest(pageNumber - 1, PAGE_SIZE, Sort.Direction.DESC, "id");
-		return userdao.findAll(pageable);
 	}
 
 	@Override
 	public User addUser(User user) {
 
 		Role role = null;
-		if (user instanceof School) {
-			role = roledao.findByType("SCHOOL");
-			user = (School) user;
-		} else if (user instanceof Admin) {
+		if (user instanceof Admin) {
 			role = roledao.findByType("ADMIN");
 			user = (Admin) user;
-		} else if (user instanceof Professor) {
-			role = roledao.findByType("PROFESSOR");
-			user = (Professor) user;
-		} else if (user instanceof Student) {
-			role = roledao.findByType("STUDENT");
-			user = (Student) user;
 		} else if (user instanceof Recruiter) {
 			role = roledao.findByType("RECRUITER");
 			user = (Recruiter) user;
@@ -134,15 +97,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateProfilePicture(String imageUrl, long id) {
 
-	}
-
-	@Override
-	public Map<Long, String> getProfessorsMap() {
-		Map<Long, String> faculties = new LinkedHashMap<>();
-		for (User user : findAllProfessorUsers()) {
-			faculties.put(user.getId(), user.getFullName());
-		}
-		return faculties;
 	}
 
 	@Override

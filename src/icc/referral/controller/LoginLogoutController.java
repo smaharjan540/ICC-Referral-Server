@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import icc.referral.service.FacultyService;
 import icc.referral.service.UserService;
 
 @Controller
@@ -25,8 +24,11 @@ public class LoginLogoutController {
 
 	@Autowired
 	UserService userService;
-	@Autowired
-	private FacultyService facultyService;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String defaultPage() {
+		return "login";
+	}
 
 	@RequestMapping(value = "/admin/**", method = RequestMethod.GET)
 	public String adminPage(ModelMap model) {

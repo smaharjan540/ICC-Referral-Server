@@ -16,7 +16,7 @@ import icc.referral.service.RoleService;
 import icc.referral.service.UserService;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin")//Answer
 public class AdminController {
 
 	@Autowired

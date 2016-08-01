@@ -9,11 +9,6 @@
 		<intercept-url pattern="/home" access="permitAll" />
 		<!-- <intercept-url pattern="/api/referral/**" access="hasRole('CONSULTANT')" /> -->
 		<intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
-		<intercept-url pattern="/school/**" access="hasRole('SCHOOL')" />
-		<intercept-url pattern="/professor/**" access="hasRole('PROFESSOR')" />
-		<intercept-url pattern="/student/**" access="hasRole('STUDENT')" />
-		<intercept-url pattern="/profile/**"
-			access="hasRole('ADMIN') or hasRole('STUDENT') or hasRole('SCHOOL') or hasRole('PROFESSOR')" />
 		<!-- <form-login login-page="/login" username-parameter="username"
 			password-parameter="password" authentication-success-handler-ref="customSuccessHandler"
 			authentication-failure-url="/logout" />

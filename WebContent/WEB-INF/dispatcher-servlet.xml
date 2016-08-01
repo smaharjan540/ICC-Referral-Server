@@ -42,9 +42,6 @@
 			<list>
 				<value>WEB-INF/views/jsp/tiles/login.xml</value>
 				<value>WEB-INF/views/jsp/tiles/admin.xml</value>
-				<value>WEB-INF/views/jsp/tiles/school.xml</value>
-				<value>WEB-INF/views/jsp/tiles/professor.xml</value>
-				<value>WEB-INF/views/jsp/tiles/student.xml</value>
 			</list>
 		</property>
 	</bean>

@@ -9,8 +9,6 @@
 			value="/WEB-INF/views/jsp/templates/header.jsp" />
 		<put-attribute name="leftmenu" type="template"
 			value="/WEB-INF/views/jsp/templates/leftmenu.jsp" />
-		<put-attribute name="navigation" type="template"
-			value="/WEB-INF/views/jsp/templates/navigation.jsp" />
 		<put-attribute name="content" type="template"
 			value="/WEB-INF/views/jsp/templates/container.jsp" />
 		<put-attribute name="footer" type="template"
