@@ -1,5 +1,5 @@
 <div id="footer">
 	<p style="text-align: center">
-		© 2016 Enterprise Application
+		© 2016 ICC Referral
 	</p>
 </div>

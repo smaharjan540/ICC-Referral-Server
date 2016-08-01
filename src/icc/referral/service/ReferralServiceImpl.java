@@ -50,4 +50,9 @@ public class ReferralServiceImpl implements ReferralService {
 		return referralDao.getAllReferralsByRecruiterId(recruiterid);
 	}
 
+	@Override
+	public Referral requestUpdateReferral(Referral referral) {
+		return referralDao.save(referral);
+	}
+
 }

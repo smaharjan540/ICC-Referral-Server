@@ -8,6 +8,8 @@ import icc.referral.model.User;
 public interface ReferralService {
 
 	public Referral addReferral(Referral referral);
+	
+	public Referral requestUpdateReferral(Referral referral);
 
 	public List<Referral> getAllReferral();
 

@@ -69,28 +69,8 @@ public class APIController {
 	@RequestMapping(value = "/recruiter/referral/{recruiterid}", method = RequestMethod.GET)
 	public ResponseEntity<List<Referral>> getRecruiterReferrals(@PathVariable("recruiterid") long recruiterid) {
 
-		List<Referral> referrals = referralService.getAllReferralsByRecruiterId(recruiterid).stream().map(r->r.updateReferral(r)).collect(Collectors.toList());
-
-//		List<ReferralPOJO> results = new ArrayList<>();
-//		ReferralPOJO result = null;
-//		for(Referral referral: referrals){
-//			result = new ReferralPOJO();
-//			result.setId(referral.getId());
-//			result.setName(referral.getName());
-//			result.setSkill(referral.getSkill());
-//			result.setConnection(referral.getConnection());
-//			result.setStatus(referral.getStatus());
-//			result.setExtra(referral.getExtra());
-//			result.setEmail(referral.getEmail());
-//			result.setPhone(referral.getPhone());
-//			result.setLinkedin(referral.getLinkedin());
-//			result.setGithub(referral.getGithub());
-//			result.setTwitter(referral.getTwitter());
-//			result.setOther(referral.getOther());
-//			result.setTimestamp((new Date().getTime()-referral.getCreatedate().getTime())/ (1000 * 60 * 60 * 24)+" days passed");
-//			result.setReferredby(referral.getUser().getFirstname()+" "+ referral.getUser().getLastname()+"-"+referral.getUser().getEmail());		
-//			results.add(result);
-//		}
+		List<Referral> referrals = referralService.getAllReferralsByRecruiterId(recruiterid).stream()
+				.map(r -> r.updateReferral(r)).collect(Collectors.toList());
 
 		if (referrals.isEmpty()) {
 			return new ResponseEntity<List<Referral>>(HttpStatus.NO_CONTENT);
@@ -103,140 +83,9 @@ public class APIController {
 	public ResponseEntity<Referral> updateReferral(@RequestBody Referral referral) {
 		System.out.println("Updating Referral " + referral.getId());
 
-		referralService.addReferral(referral);
+		referralService.requestUpdateReferral(referral);
 
 		return new ResponseEntity<Referral>(referral, HttpStatus.OK);
 	}
-
-//	class ReferralPOJO {
-//
-//		private long id;
-//		private String name;
-//		private String skill;
-//		private String connection;
-//		private String status;
-//		private String extra;
-//		private String email;
-//		private String phone;
-//		private String linkedin;
-//		private String github;
-//		private String twitter;
-//		private String other;
-//		private String timestamp;
-//		private String referredby;
-//
-//		public Long getId() {
-//			return id;
-//		}
-//
-//		public void setId(Long id) {
-//			this.id = id;
-//		}
-//
-//		public String getName() {
-//			return name;
-//		}
-//
-//		public void setName(String name) {
-//			this.name = name;
-//		}
-//
-//		public String getSkill() {
-//			return skill;
-//		}
-//
-//		public void setSkill(String skill) {
-//			this.skill = skill;
-//		}
-//
-//		public String getConnection() {
-//			return connection;
-//		}
-//
-//		public void setConnection(String connection) {
-//			this.connection = connection;
-//		}
-//
-//		public String getStatus() {
-//			return status;
-//		}
-//
-//		public void setStatus(String status) {
-//			this.status = status;
-//		}
-//
-//		public String getExtra() {
-//			return extra;
-//		}
-//
-//		public void setExtra(String extra) {
-//			this.extra = extra;
-//		}
-//
-//		public String getEmail() {
-//			return email;
-//		}
-//
-//		public void setEmail(String email) {
-//			this.email = email;
-//		}
-//
-//		public String getPhone() {
-//			return phone;
-//		}
-//
-//		public void setPhone(String phone) {
-//			this.phone = phone;
-//		}
-//
-//		public String getLinkedin() {
-//			return linkedin;
-//		}
-//
-//		public void setLinkedin(String linkedin) {
-//			this.linkedin = linkedin;
-//		}
-//
-//		public String getGithub() {
-//			return github;
-//		}
-//
-//		public void setGithub(String github) {
-//			this.github = github;
-//		}
-//
-//		public String getTwitter() {
-//			return twitter;
-//		}
-//
-//		public void setTwitter(String twitter) {
-//			this.twitter = twitter;
-//		}
-//
-//		public String getOther() {
-//			return other;
-//		}
-//
-//		public void setOther(String other) {
-//			this.other = other;
-//		}
-//
-//		public String getTimestamp() {
-//			return timestamp;
-//		}
-//
-//		public void setTimestamp(String timestamp) {
-//			this.timestamp = timestamp;
-//		}
-//
-//		public String getReferredby() {
-//			return referredby;
-//		}
-//
-//		public void setReferredby(String referredby) {
-//			this.referredby = referredby;
-//		}
-//
-//	}
 
 }

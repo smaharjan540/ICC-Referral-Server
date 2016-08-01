@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import icc.referral.model.QueuedEmail;
 import icc.referral.model.Recruiter;
+import icc.referral.model.Referral;
 import icc.referral.model.User;
 import icc.referral.service.QueuedEmailService;
 import icc.referral.utils.EmailUtils;
@@ -19,13 +20,32 @@ public class EmailAspect {
 	@Autowired
 	private QueuedEmailService emailService;
 
+	@After("execution(* icc.referral.service.ReferralServiceImpl.requestUpdateReferral(..))")
+	public void createUpdateReferralEmailQueue(JoinPoint joinpoint) {
+		System.out.println(
+				"Running aspect : execution(* icc.referral.service.ReferralServiceImpl.requestUpdateReferral(..))");
+
+		Object[] args = joinpoint.getArgs();
+		Referral referral = (Referral) args[0];
+
+		String name = referral.getUser().getFirstname();
+
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("Hello " + name + ",\n");
+		buffer.append("Is this candidate still available? Please let me know candidate is still available.\n\n");
+		buffer.append("Thank you!");
+
+		createEmailQueued(referral.getUser().getEmail(), "Request update", buffer.toString(), "Request update");
+
+	}
+
 	@After("execution(* icc.referral.service.UserServiceImpl.addUser(..))")
 	public void createUserEmailQueue(JoinPoint joinpoint) {
 
 		System.out.println("Running aspect : execution(* icc.referral.service.UserServiceImpl.addUser(..))");
 
 		Object[] args = joinpoint.getArgs();
-		icc.referral.model.User user = (User) args[0];
+		User user = (User) args[0];
 
 		if (user instanceof Recruiter) {
 			user = (Recruiter) user;
