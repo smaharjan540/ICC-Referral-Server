@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="studentpage" template="/WEB-INF/views/jsp/layouts/main.jsp">
+		<put-attribute name="title" value="Student page" />
+		<put-attribute name="header" type="template"
+			value="/WEB-INF/views/jsp/templates/header.jsp" />
+		<put-attribute name="leftmenu" type="template"
+			value="/WEB-INF/views/jsp/templates/leftmenu.jsp" />
+		<put-attribute name="navigation" type="template"
+			value="/WEB-INF/views/jsp/templates/navigation.jsp" />
+		<put-attribute name="content" type="template"
+			value="/WEB-INF/views/jsp/templates/container.jsp" />
+		<put-attribute name="footer" type="template"
+			value="/WEB-INF/views/jsp/templates/footer.jsp" />
+	</definition>
+	<!-- Resourse Page -->
+	<definition name="studentresource" extends="studentpage">
+		<put-attribute name="title" value="Resource page" />
+		<put-attribute name="content" type="template"
+			value="/WEB-INF/views/jsp/templates/student/resource.jsp" />
+	</definition>
+	<!-- Answer Page -->
+	<definition name="studentanswer" extends="professoradmin">
+		<put-attribute name="title" value="Answer page" />
+		<put-attribute name="content" type="template"
+			value="/WEB-INF/views/jsp/templates/student/answer.jsp" />
+	</definition>
+	<!-- Discussion Page -->
+	<definition name="studentdiscussion" extends="studentpage">
+		<put-attribute name="title" value="Discussion page" />
+		<put-attribute name="content" type="template"
+			value="/WEB-INF/views/jsp/templates/student/discussion.jsp" />
+	</definition>
+	<!-- Message Page -->
+	<definition name="studentmessage" extends="studentpage">
+		<put-attribute name="title" value="Message page" />
+		<put-attribute name="content" type="template"
+			value="/WEB-INF/views/jsp/templates/student/message.jsp" />
+	</definition>
+
+</tiles-definitions>

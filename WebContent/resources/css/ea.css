@@ -1,0 +1,176 @@
+html {
+	background-color: #2F2F2F;
+}
+
+body, #mainWrapper {
+	height: 100%;
+	background-image: -webkit-gradient(linear, right bottom, right top, color-stop(0, #EDEDED),
+		color-stop(0.08, #EAEAEA), color-stop(1, #2F2F2F),
+		color-stop(1, #AAAAAA));
+	background-image: -o-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA
+		100%);
+	background-image: -moz-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA
+		100%);
+	background-image: -webkit-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%,
+		#AAAAAA 100%);
+	background-image: -ms-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA
+		100%);
+	background-image: linear-gradient(to top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA
+		100%);
+}
+
+body, #mainWrapper, .form-control {
+	font-size: 12px !important;
+}
+
+#mainWrapper {
+	height: 100vh;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+.login-container {
+	margin-top: 100px;
+	background-color: floralwhite;
+	width: 40%;
+	left: 30%;
+	position: absolute;
+}
+
+.login-card {
+	width: 80%;
+	margin: auto;
+}
+
+.login-form {
+	padding: 10%;
+}
+
+#header {
+	height: 50px;
+	/* border: 1px solid gray; */
+	padding: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+#body {
+	height: 500px;
+}
+/* #navigation{
+	border: 1px solid gray;
+	margin: 5px;
+} */
+#leftmenu {
+	width: 20%;
+	/* border: 1px solid gray; */
+	float: left;
+	margin-right: 5px;
+}
+
+#content {
+	width: 79%;
+	/* border: 1px solid gray; */
+	float: right;
+}
+
+/* .username.ng-valid {
+	background-color: lightgreen;
+}
+
+.username.ng-dirty.ng-invalid-required {
+	background-color: red;
+}
+
+.username.ng-dirty.ng-invalid-minlength {
+	background-color: yellow;
+}
+
+.email.ng-valid {
+	background-color: lightgreen;
+}
+
+.email.ng-dirty.ng-invalid-required {
+	background-color: red;
+}
+
+.email.ng-dirty.ng-invalid-email {
+	background-color: yellow;
+} */
+.lead {
+	font-family: Arial, sans-serif;
+	font-size: 130%;
+	font-weight: bold;
+}
+
+.panel-heading {
+	margin-bottom: 10px;
+}
+
+.formcontainer {
+	/*  margin-top: 10px;  */
+	
+}
+
+.control-lable {
+	margin-left: -15px;
+}
+
+.form-control {
+	width: 50%;
+}
+
+.row {
+	margin-left: 10px;
+}
+
+/* Tab Navigation */
+.nav-tabs {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.nav-tabs>li>a {
+	background: #DADADA;
+	border-radius: 0;
+	box-shadow: inset 0 -8px 7px -9px rgba(0, 0, 0, .4), -2px -2px 5px -2px
+		rgba(0, 0, 0, .4);
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover {
+	background: #F5F5F5;
+	box-shadow: inset 0 0 0 0 rgba(0, 0, 0, .4), -2px -3px 5px -2px
+		rgba(0, 0, 0, .4);
+}
+
+/* Tab Content */
+.tab-pane {
+	background: #F5F5F5;
+	box-shadow: 0 0 4px rgba(0, 0, 0, .4);
+	border-radius: 0;
+	text-align: center;
+	padding: 10px;
+}
+
+.container {
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.eaTable {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+
+.dragDropHandler {
+	border: 2px dashed #92AAB0;
+	color: #92AAB0;
+	padding-top: 40px;
+	font-size: 250%;
+	width: 300px;
+	height: 150px;
+	float: left;
+}
