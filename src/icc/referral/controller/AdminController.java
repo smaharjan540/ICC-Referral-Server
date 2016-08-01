@@ -1,6 +1,5 @@
 package icc.referral.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import icc.referral.model.Admin;
+import icc.referral.model.Recruiter;
 import icc.referral.model.Role;
 import icc.referral.service.QueuedEmailService;
 import icc.referral.service.RoleService;
 import icc.referral.service.UserService;
 
 @Controller
-@RequestMapping("/admin")//Answer
+@RequestMapping("/admin")
 public class AdminController {
 
 	@Autowired
@@ -35,12 +35,18 @@ public class AdminController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String userPage(ModelMap model) {
-
+		model.addAttribute("recruiterUsers", userService.findAllRecruiterUsers());
+		model.addAttribute("recruiter", new Recruiter());
 		model.addAttribute("adminUsers", userService.findAllAdminUsers());
 		model.addAttribute("admin", new Admin());
 		return "user";
 	}
 
+	@RequestMapping(value = "/user/recruiter", method = RequestMethod.POST)
+	public String addRecruiter(Recruiter recruiterUser) {
+		userService.addUser(recruiterUser);
+		return "redirect:/admin/user";
+	}
 
 	@RequestMapping(value = "/user/admin", method = RequestMethod.POST)
 	public String addAdmin(Admin adminUser) {
@@ -73,6 +79,13 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/activate", method = RequestMethod.POST)
 	public String activateAdmin(@RequestParam("id") long id, @RequestParam("active") boolean active) {
+
+		userService.activateUser(active, id);
+		return "redirect:/admin/role";
+	}
+	
+	@RequestMapping(value = "/recruiter/activate", method = RequestMethod.POST)
+	public String activateRecruiter(@RequestParam("id") long id, @RequestParam("active") boolean active) {
 
 		userService.activateUser(active, id);
 		return "redirect:/admin/role";
