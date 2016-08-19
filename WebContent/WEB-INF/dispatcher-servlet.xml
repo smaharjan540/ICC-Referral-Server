@@ -92,6 +92,6 @@
 	<task:annotation-driven executor="myExecutor" />
 	<task:executor id="myExecutor" pool-size="5" />
 
-	<import resource="springsecurity.xml" />
+	<import resource="spring-security.xml" />
 
 </beans>

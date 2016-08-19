@@ -99,10 +99,16 @@ public class ReferralRestControllerAPI {
 	@CrossOrigin
 	@RequestMapping(value = "/skills", method = RequestMethod.GET)
 	public ResponseEntity<List<String>> listAllSkillsSet() {
+		List<String> skills = Arrays.asList("Project Manager","Business Intelligence");
+
+		return new ResponseEntity<List<String>>(skills, HttpStatus.OK);
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/technologies", method = RequestMethod.GET)
+	public ResponseEntity<List<String>> listAllTechnologiessSet() {
 		List<String> skills = Arrays.asList("CSS3", "HTML5", "JavaScript", "Ruby on Rails", "Java", ".Net", "AngularJS",
 				"React", "Spring", "Hibernate", "Jquery", "Ajax", "JSF", "JSP", "Scala");
-
-		System.out.println("Skill size:" + skills.size());
 
 		return new ResponseEntity<List<String>>(skills, HttpStatus.OK);
 	}
@@ -117,6 +123,7 @@ public class ReferralRestControllerAPI {
 		referral.setUser(user);
 		referral.setCreatedate(new Date());
 		referral.setSkill(referral.getSkills().stream().collect(Collectors.joining(", ")));
+		referral.setTechnology(referral.getTechnologies().stream().collect(Collectors.joining(", ")));
 
 		referralService.addReferral(referral);
 

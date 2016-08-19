@@ -22,6 +22,9 @@ public class Referral {
 	private String skill;
 	@Transient
 	private List<String> skills;
+	private String technology;
+	@Transient
+	private List<String> technologies;
 	private String connection;
 	private String status;
 	private String extra;
@@ -219,6 +222,22 @@ public class Referral {
 				(new Date().getTime() - referral.getCreatedate().getTime()) / (1000 * 60 * 60 * 24) + " Days old");
 		referral.setReferredby(referral.getUser().getFirstname() + " " + referral.getUser().getLastname());
 		return referral;
+	}
+
+	public String getTechnology() {
+		return technology;
+	}
+
+	public void setTechnology(String technology) {
+		this.technology = technology;
+	}
+
+	public List<String> getTechnologies() {
+		return technologies;
+	}
+
+	public void setTechnologies(List<String> technologies) {
+		this.technologies = technologies;
 	}
 
 }

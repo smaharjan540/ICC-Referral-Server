@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+	http://www.springframework.org/schema/security/oauth2 
+	http://www.springframework.org/schema/security/spring-security-oauth2-2.0.xsd
+   	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
 
 	<http entry-point-ref="restAuthenticationEntryPoint">
 		<intercept-url pattern="/" access="permitAll" />
@@ -19,7 +33,8 @@
 			<concurrency-control max-sessions="1" error-if-maximum-exceeded="true" expired-url="/logout" session-registry-alias="sessionRegistry" />
 		</session-management> -->
 	</http>
-
+	
+	
 	<authentication-manager>
 		<authentication-provider user-service-ref="customUserDetailsService" />
 	</authentication-manager>
@@ -27,6 +42,5 @@
 	<beans:bean id="customUserDetailsService" class="icc.referral.service.CustomUserDetailsService" />
 	<beans:bean id="customSuccessHandler" class="icc.referral.configuration.CustomSuccessHandler" />
 	<beans:bean id="myFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" />
-		
-
+  	
 </beans:beans>
